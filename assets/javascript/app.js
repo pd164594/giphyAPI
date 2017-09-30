@@ -50,6 +50,8 @@ for(var i=0; i<topics.length; i++){
 	$('#mainButtonDiv').append(newButton).append(" ");
 	console.log(topics);
 
+	$("#searchTerm").val("");
+
 
 
 // =========================== On the Click of the button call the GIphy API and push giphs to the page ==============================
