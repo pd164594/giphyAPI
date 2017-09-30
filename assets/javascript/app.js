@@ -47,23 +47,24 @@ for(var i=0; i<topics.length; i++){
 	newButton.html(searchTerm);
 
 	// Appending the button the
-	$('#mainButtonDiv').append(newButton).append(" ").append(" ");
+	$('#mainButtonDiv').append(newButton).append(" ");
 	console.log(topics);
+
 
 
 // =========================== On the Click of the button call the GIphy API and push giphs to the page ==============================
 
 
  	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u
-var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query "&limit=10&offset=0G&lang=en"
+// var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query "&limit=10&offset=0G&lang=en"
 
-		$.ajax({
-		 	url: url, 
-		 	method: 'GET',
-		 }).done(function(response){
+// 		$.ajax({
+// 		 	url: url, 
+// 		 	method: 'GET',
+// 		 }).done(function(response){
 
 
-		 	})
+// 		 	})
 
 
 
