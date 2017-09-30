@@ -67,6 +67,8 @@ var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZ
 
 
 
-
+// PATTTTTTT LOOK HERE. THINGS YOU NEED TO DO:
+// To Do: 1.  Find out how to assing or use the data attribute and make data attriubte equal to the text in the box. 
+// This should be done before calling the API. DOnt FUCK THIS UP. 
 
  });
