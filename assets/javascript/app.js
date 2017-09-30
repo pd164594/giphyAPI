@@ -1,10 +1,72 @@
- Volume in drive C is OS
- Volume Serial Number is 824E-EEA2
+// 1. Create an array of topics to house all of the topics that are pushed to the array from the input box. 
 
- Directory of C:\Users\Pat Doyle\Documents\Northwestern Coding Bootcamp\Homework\giphyAPI\assets\javascript
+var topics = ["Steve Buscemi", "Cats", "hamsters"];
 
-09/29/2017  07:30 PM    <DIR>          .
-09/29/2017  07:30 PM    <DIR>          ..
-09/29/2017  07:30 PM                 0 app.js
-               1 File(s)              0 bytes
-               2 Dir(s)  1,834,305,638,400 bytes free
+// 2. Create buttons for each to the text strings in the array and push to the DOM. 
+
+
+// ==============================This dynamically adds our new buttons from the array ==============
+
+// Loop runs through all of the items in the array. 
+for(var i=0; i<topics.length; i++){
+
+
+	// For each item in the array it creates a new button. 
+	var newButton = $('<button>');
+	// for each new button we are assign it a new class. 
+	newButton.addClass('buttons');
+
+	// adding a span to space out the buttons
+	// For each new button we are assigning it a  data type of the topic word. 
+	newButton.data("data-name", topics[i]);
+	// For each button we are populating the text of the button with the button array value name. 
+	newButton.html(topics[i] + " ");
+
+	// Appending the button the
+	$('#mainButtonDiv').append(newButton).append(" ").append(" ");
+}
+
+// ============================== On Submit Click function Creat New Button and pus to Main Button Div. ========================================
+
+ $('#createButton').on("click", function(){
+
+ 	// getting the value from the input field. 
+ 	var searchTerm = $('#searchTerm').val();
+ 	// pushing the search Term in to the topics Array. 
+ 	topics.push(searchTerm);
+
+ 	// For each item in the array it creates a new button. 
+	var newButton = $('<button>');
+	// for each new button we are assign it a new class. 
+	newButton.addClass('buttons');
+
+	// adding a span to space out the buttons
+	// For each new button we are assigning it a  data type of the topic word. 
+	newButton.data("data-name", searchTerm);
+	// For each button we are populating the text of the button with the button array value name. 
+	newButton.html(searchTerm);
+
+	// Appending the button the
+	$('#mainButtonDiv').append(newButton).append(" ").append(" ");
+	console.log(topics);
+
+
+// =========================== On the Click of the button call the GIphy API and push giphs to the page ==============================
+
+
+ 	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u
+var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query "&limit=10&offset=0G&lang=en"
+
+		$.ajax({
+		 	url: url, 
+		 	method: 'GET',
+		 }).done(function(response){
+
+
+		 	})
+
+
+
+
+
+ });
