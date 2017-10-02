@@ -44,7 +44,7 @@ for(var i=0; i<topics.length; i++){
 	// for each new button we are assign it a new class. 
 	newButton.addClass('buttons');
 
-	newButton.attr("data-name", newTopics[i]);
+	newButton.attr("data-name", searchTerm);
 	// For each button we are populating the text of the button with the button array value name. 
 	newButton.html(searchTerm);
 
@@ -66,21 +66,21 @@ for(var i=0; i<topics.length; i++){
 // =========================== On the Click of the button call the GIphy API and push giphs to the page ==============================
 
 
- 	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u'
- function alertWord(){
+//  	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u'
+//  function alertWord(){
  	
- }
+//  }
 
 
-var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query "&limit=10&offset=0G&lang=en"
+// var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query "&limit=10&offset=0G&lang=en"
 
-		$.ajax({
-		 	url: url, 
- 		 	method: 'GET',
- 		 }).done(function(response){
+// 		$.ajax({
+// 		 	url: url, 
+//  		 	method: 'GET',
+//  		 }).done(function(response){
 
 
- 	})
+//  	})
 
 
 
