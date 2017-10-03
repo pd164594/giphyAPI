@@ -1,6 +1,6 @@
 // 1. Create an array of topics to house all of the topics that are pushed to the array from the input box. 
 
-var topics = ["Steve Buscemi", "Cats", "hamsters"];
+var topics = ["Steve Buscemi", "Cats", "hamsters", "dog"];
 var newTopics= [];
 
 // 2. Create buttons for each to the text strings in the array and push to the DOM. 
@@ -37,7 +37,7 @@ for(var i=0; i<topics.length; i++){
  	// getting the value from the input field. 
  	var searchTerm = $('#searchTerm').val().trim();
  	// pushing the search Term in to the topics Array. 
- 	newTopics.push(searchTerm);
+ 	topics.push(searchTerm);
 
  	// For each item in the array it creates a new button. 
 	var createButton = $('<button>');
@@ -55,7 +55,7 @@ for(var i=0; i<topics.length; i++){
 	// THis is clearing the value of the input after the button is created. 
 	$("#searchTerm").val("");
 
-	console.log(newTopics);
+	console.log(topics);
 
  });
 
@@ -66,13 +66,14 @@ for(var i=0; i<topics.length; i++){
  	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u'
 // Creating on click event to hit the API for GIPHY. 
 
-$(".buttons").on("click", function(){
+$("#mainButtonDiv").delegate(".buttons", "click", function(){
 
 		// Empty the main div on click; 
 		$('#giphDiv').empty();
 
 		// Setting a variable to equal the value associated with the attribute "data-name";
         var query = $(this).attr("data-name");
+        console.log($(this));
         
 
         // Giphy API Link. 
@@ -107,11 +108,7 @@ $(".buttons").on("click", function(){
  		 	});
 
 	 	});
-	 
 
 
-
-// PATTTTTTT LOOK HERE. THINGS YOU NEED TO DO:
-// To Do: 1.  Find out how to assing or use the data attribute and make data attriubte equal to the text in the box. 
-// This should be done before calling the API. DOnt FUCK THIS UP. 
+	
 
