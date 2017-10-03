@@ -40,23 +40,20 @@ for(var i=0; i<topics.length; i++){
  	newTopics.push(searchTerm);
 
  	// For each item in the array it creates a new button. 
-	var newButton = $('<button>');
+	var createButton = $('<button>');
 	// for each new button we are assign it a new class. 
-	newButton.addClass('buttons');
+	createButton.addClass('buttons');
+	createButton.attr("id", "newButtons");
 
-	newButton.attr("data-name", searchTerm);
+	createButton.attr("data-name", searchTerm);
 	// For each button we are populating the text of the button with the button array value name. 
-	newButton.html(searchTerm);
+	createButton.html(searchTerm);
 
 	// Appending the button the
-	$('#mainButtonDiv').append(newButton).append(" ");
+	$('#mainButtonDiv').append(createButton).append(" ");
 
 	// THis is clearing the value of the input after the button is created. 
 	$("#searchTerm").val("");
-
-	// Appending the button the
-	$('#mainButtonDiv').append(newButton).append(" ");
-
 
 	console.log(newTopics);
 
@@ -66,21 +63,51 @@ for(var i=0; i<topics.length; i++){
 // =========================== On the Click of the button call the GIphy API and push giphs to the page ==============================
 
 
-//  	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u'
-//  function alertWord(){
- 	
-//  }
+ 	// Giphy app key NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u'
+// Creating on click event to hit the API for GIPHY. 
 
+$(".buttons").on("click", function(){
 
-// var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query "&limit=10&offset=0G&lang=en"
+		// Empty the main div on click; 
+		$('#giphDiv').empty();
 
-// 		$.ajax({
-// 		 	url: url, 
-//  		 	method: 'GET',
-//  		 }).done(function(response){
+		// Setting a variable to equal the value associated with the attribute "data-name";
+        var query = $(this).attr("data-name");
+        
 
+        // Giphy API Link. 
+		var url =  "https://api.giphy.com/v1/gifs/search?api_key=NLkRw2HinADcG3ZBurP4UZZRqJMJmf0u&q=" + query + "&limit=10&offset=0G&lang=en";
 
-//  	})
+		$.ajax({
+		 	url: url, 
+ 		 	method: 'GET',
+ 		 }).done(function(response){
+ 		 	console.log(response);
+
+ 		 		var results = response.data;
+
+ 		 		//looping through the items in the array. 
+ 		 		for (var i=0; i<results.length; i++){
+ 		 			var giphDiv = $("<div>");
+
+ 		 			var p = $("<p>").text("Rating: " + results[i].rating);
+
+ 		 			var giphImg = $("<img>");
+
+ 		 			giphImg.attr("src", results[i].images.fixed_height.url);
+
+ 		 			giphDiv.append(p);
+
+ 		 			giphDiv.append(giphImg);
+
+ 		 			$("#giphDiv").append(giphDiv);
+
+ 		 		}
+
+ 		 	});
+
+	 	});
+	 
 
 
 
