@@ -90,12 +90,15 @@ $("#mainButtonDiv").delegate(".buttons", "click", function(){
  		 		//looping through the items in the array. 
  		 		for (var i=0; i<results.length; i++){
  		 			var giphDiv = $("<div>");
+ 		 			giphDiv.addClass("giphDiv");
 
  		 			var p = $("<p>").text("Rating: " + results[i].rating);
 
  		 			var giphImg = $("<img>");
 
  		 			giphImg.attr("src", results[i].images.fixed_height.url);
+
+
 
  		 			giphDiv.append(p);
 
