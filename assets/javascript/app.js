@@ -1,6 +1,6 @@
 // 1. Create an array of topics to house all of the topics that are pushed to the array from the input box. 
 
-var topics = ["Steve Buscemi", "Cats", "hamsters", "dog"];
+var topics = ["Buster Bluth", "Tobias Funke", "Job Bluth", "Lucile Bluth", "George Michael Bluth", "George Bluth Sr.", "Michael Bluth", "Maeby Funke", "Lindsay Funke", "Bob Loblaw", "Lucile Austero", "Annyong", "Steve Holt", "Ann Veal"];
 var newTopics= [];
 
 // 2. Create buttons for each to the text strings in the array and push to the DOM. 
@@ -92,18 +92,32 @@ $("#mainButtonDiv").delegate(".buttons", "click", function(){
  		 			var giphDiv = $("<div>");
  		 			giphDiv.addClass("giphDiv");
 
+ 		 			// Creating a variable that will house the rating of the giph. 
  		 			var p = $("<p>").text("Rating: " + results[i].rating);
 
+ 		 			// creating a new Image tag to hold the gif image in. 
  		 			var giphImg = $("<img>");
 
- 		 			giphImg.attr("src", results[i].images.fixed_height.url);
+ 		 			// giving the  image a source of the still Giph.
+ 		 			giphImg.attr("src", results[i].images.fixed_height_still.url);
+
+ 		 			// Defining a new attribute to the image of the Data-Still link. 
+ 		 			giphImg.attr("data-still", results[i].images.fixed_height_still.url);
+
+ 		 			// Creating another new attribute on the image of State Still. To indicate a still imiage. 
+ 		 			giphImg.attr("data-state", "still");
+
+ 		 			// Creating on more attribute to hold the Active Giph url. 
+ 		 			giphImg.attr("data-active", results[i].images.fixed_height.url);
 
 
-
+ 		 			// appending the paragraph tag create to my GiphDiv created above on line 92
  		 			giphDiv.append(p);
 
+ 		 			// appending the image to my giph div. 
  		 			giphDiv.append(giphImg);
 
+ 		 			// Appending the whole Giph div to the DOM. 
  		 			$("#giphDiv").append(giphDiv);
 
  		 		}
@@ -113,5 +127,19 @@ $("#mainButtonDiv").delegate(".buttons", "click", function(){
 	 	});
 
 
+//======================= Creating an on click event of the IMAGES! =========================================
 	
 
+	$("#giphDiv").delegate("img", "click", function(){
+		console.log("image click worked");
+
+		var state = $(this).attr("data-state");
+
+		if(state ==="still"){
+			$(this).attr("src", $(this).attr("data-active"))
+			$(this).attr("data-state", "animate");
+		}  else {
+			$(this).attr("src", $(this).attr("data-still"));
+			$(this).attr("data-state", "still");
+		}
+	})

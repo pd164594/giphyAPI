@@ -4,5 +4,8 @@
 }
 
 #searchBox{
-	float:right;
+	align-items: center;
+}
+.buttons{
+	margin:5px;
 }
