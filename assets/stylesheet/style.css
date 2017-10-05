@@ -9,3 +9,25 @@
 .buttons{
 	margin:5px;
 }
+
+button{
+	border-radius: 5px;
+	background-color: #57aeff;
+	font-weight: bold; 
+
+}
+
+body{
+	background-color:#cacaca;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold; 
+}
+
+h1{
+	text-align: center;
+}
+
+span{
+	font-weight: bold;
+	font-size: 15px;
+}
